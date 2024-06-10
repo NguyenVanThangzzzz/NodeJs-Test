@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const hbs = require('express-handlebars');
+const methodOverride = require('method-override');
 const app = express();
 const port = 3000;
 
@@ -21,7 +22,7 @@ app.use(express.urlencoded({
     extended: true
 }));
 app.use(express.json());
-
+app.use(methodOverride('_method'))
 // connectdb
 db.connect();
 
